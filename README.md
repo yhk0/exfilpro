@@ -1,9 +1,9 @@
 # ExfilPro
 
-![Go Version](https://img.shields.io/github/go-mod/go-version/golang/go) ![License](https://img.shields.io/github/license/yhk0/exfilpro-blue) ![Build Status](https://img.shields.io/badge/build-passing-brightgreen) ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux-blue)
-
+![License](https://img.shields.io/github/license/yhk0/exfilpro) ![Build Status](https://img.shields.io/badge/build-passing-brightgreen) ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux-blue)
 
 ExfilPro is a CLI tool designed for analyzing web content or files for potential sensitive information leaks. It supports filtering results by specific types of leaks and provides detailed output, including line numbers and file paths.
+
 ```bash
 $ exfilpro -h
 
@@ -34,6 +34,7 @@ Flags:
 
 Use "exfilpro [command] --help" for more information about a command.
 ```
+
 ## Features
 
 - Analyze web content for leaks (e.g., emails, API keys, passwords).
@@ -44,21 +45,27 @@ Use "exfilpro [command] --help" for more information about a command.
 ## Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/yourusername/exfilpro.git
    cd exfilpro
    ```
 
 2. Makefile (on Linux/Mac):
+
    ```bash
    make build-linux
    make build-macos
    ```
+
    Makefile (on Windows):
+
    ```bash
    make build-windows
    ```
-3.  Enter the BIN directory
+
+3. Enter the BIN directory
+
    ```bash
    cd bin
    ```
@@ -66,41 +73,51 @@ Use "exfilpro [command] --help" for more information about a command.
 ## Usage
 
 ### Web Mode
+
 Analyze web content:
 
-pattern: 
+pattern:
+
 ```bash
-$ ./exfilpro web <url>
-``` 
+./exfilpro web <url>
+```
+
 use flags
+
 ```bash
-$ ./exfilpro web <url> -f [flags]
+./exfilpro web <url> -f [flags]
 ```
 
 #### Flags
+
 - `-f` : Filter results by data type (email, pass, API Key, reCAPTCHA)
-- `-f email` 
-- `-f pass` 
-- `-f API Key` 
-- `-f reCAPTCHA ` 
+- `-f email`
+- `-f pass`
+- `-f API Key`
+- `-f reCAPTCHA`
 - `-h` : Display help for the `web` mode.
 
 Example:
+
 ```bash
 ./exfilpro web https://example.com -f email
 ```
 
 ### File Mode
+
 Analyze a file for metadata and leaks:
+
 ```bash
 ./exfilpro file -p <file_path>
 ```
 
 #### Flags
+
 - `-h` : Display help for the `file` mode.
 - `-p` : Path of the file to be parsed (required)
 
 Example:
+
 ```bash
 ./exfilpro file /path/to/file.txt
 ```
@@ -116,4 +133,3 @@ This project is licensed under the Apache License. See the `LICENSE` file for de
 ## Acknowledgments
 
 Thanks to all contributors and the Go community for their support and resources.
-

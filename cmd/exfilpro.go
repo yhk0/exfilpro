@@ -12,8 +12,8 @@ var rootCmd = &cobra.Command{
 	Use:   "exfilpro",
 	Short: "A tool for data leak analysis",
 	Long: `ExfilPro is a CLI tool designed for analyzing web content or files 
-for potential sensitive information leaks. 
-It supports filtering results by specific types of leaks and provides detailed output, 
+for potential sensitive information leaks. It supports filtering results by specific 
+types of leaks and provides detailed output, 
 including line numbers and file paths.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("Use 'exfilpro --help' to see the available commands.")
@@ -28,6 +28,7 @@ func Execute() {
 }
 
 func init() {
-	rootCmd.AddCommand(webCmd)
 	rootCmd.AddCommand(fileCmd)
+	rootCmd.AddCommand(webCmd)
+	rootCmd.CompletionOptions.DisableDefaultCmd = true
 }
